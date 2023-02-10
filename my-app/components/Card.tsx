@@ -17,12 +17,12 @@ export default function Card(params: ICard) {
 
   const [active, setActive] = useState<boolean>(false);
 
-  const handleClick = (e: any) => {
-
+  const handleClick = () => {
+    (active) ? setActive(false) : setActive(true)
   }
 
   return (
-    <div className={`${styles.card} + ${styles.isReversed}`} onClick={(e) => handleClick(e)}>
+    <div className={`${styles.card} + ${(active) ? styles.isReversed : ''}`} onClick={handleClick}>
       <div className={styles.card__head}>
         <div className={styles.card__word}>{params.exampleEn}</div>
         <div className={styles.card__example}>♫ {params.exampleEn}</div>

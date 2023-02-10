@@ -1,15 +1,20 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
 import { Layout } from '@/layout/Layout'
-import Card from '@/components/Card'
-
-const inter = Inter({ subsets: ['latin'] })
+import Card, { ICard } from '@/components/Card'
+import { cards } from '@/dummy-data/cards'
+import styles from '@/pages/cards.module.scss'
 
 export default function Cards() {
   return (
     <Layout>
-        <Card></Card>
-    </Layout>
+      <ul className={styles.cardList}>
+      { cards.map(item => {
+        return (
+          <li key={item.id}>
+            <Card {...item} />
+          </li>
+        )
+      })}
+      </ul>
+    </Layout >
   )
 }

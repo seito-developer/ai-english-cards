@@ -1,5 +1,6 @@
 import { ReactElement } from 'react'
 import Head from 'next/head'
+import styles from '@/layout/Layout.module.scss'
 
 type LayoutProps = Required<{
   readonly children: ReactElement
@@ -14,6 +15,8 @@ export const Layout = ({ children }: LayoutProps) => (
         <link rel="icon" href="/favicon.ico" />
     </Head>
     
-    { children }
+    <div className={styles.lContainer}>
+      { children }
+    </div>
   </>
 )

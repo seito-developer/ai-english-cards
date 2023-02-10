@@ -1,31 +1,41 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 // import cardStyles from '/'
 import styles from '@/components/Card.module.scss'
 
-type Props = {}
+export interface ICard {
+  id: number
+  wordEn: string
+  wordJa: string
+  exampleEn: string
+  exampleJa: string
+  voiceEn: any
+  voiceJa: any
+  imgUrl: string
+};
 
-type State = {}
+export default function Card(params: ICard) {
 
-export default class Card extends Component<Props, State> {
-  state = {}
+  const [active, setActive] = useState<boolean>(false);
 
-  render() {
-    return (
-      <div className={styles.card}>
-        <div className="card__head">
-            <div className="card__word">dog</div>
-            <div className="card__example">♫ This is a dog</div>
-            <div className="card__voice">♫</div>
-            <div className="card__image">
-                <img src="https://dummyimage.com/600x400/000/fff" alt="" />
-            </div>
-        </div>
-        <div className="card__tail">
-            <div className="card__word">犬</div>
-            <div className="card__example">♫ 彼は犬です</div>
-            <div className="card__voice">♫</div>
-        </div>
-      </div>
-    )
+  const handleClick = (e: any) => {
+
   }
+
+  return (
+    <div className={`${styles.card} + ${styles.isReversed}`} onClick={(e) => handleClick(e)}>
+      <div className={styles.card__head}>
+        <div className={styles.card__word}>{params.exampleEn}</div>
+        <div className={styles.card__example}>♫ {params.exampleEn}</div>
+        <div className={styles.card__voice}>♫</div>
+        {/* <div className={styles.card__image}>
+              <img src="https://dummyimage.com/600x400/000/fff" alt="" />
+          </div> */}
+      </div>
+      <div className={styles.card__tail}>
+        <div className={styles.card__word}>{params.wordJa}</div>
+        <div className={styles.card__example}>♫ {params.exampleJa}</div>
+        <div className={styles.card__voice}>♫</div>
+      </div>
+    </div>
+  )
 }

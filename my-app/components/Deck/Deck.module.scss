@@ -1,8 +1,9 @@
 @use "../../styles/mixin.scss";
 
-.deck {}
-.deck__inner {
+.deck {
     background: #fff;
+}
+.deck__inner {
     padding: 10px;
     position: relative;
     border: 1px solid #ccc;

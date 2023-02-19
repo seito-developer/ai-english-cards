@@ -14,7 +14,7 @@ export default function Deck(params: IDeck) {
 
   return (
     <div className={styles.deck}>
-      <Link href={'/'}>
+      <Link href={'/cards'}>
         <div className={styles.deck__inner}>
           <p className={styles.deck__heading}>{ params.name }</p>
           <p className={styles.deck__num}>Card numbers: { params.cards.length}</p>

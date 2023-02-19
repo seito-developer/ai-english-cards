@@ -21,6 +21,7 @@ export default function CardController() {
 
   return (
     <div className={styles.cardController}>
+      <h1>{ (index + 1) + "/" + cards.length}</h1>
         <div className={styles.cardController__direction}>
             <button type='button' onClick={() => increnmentIndex()}>覚えた！</button>
             <button type='button' onClick={() => increnmentIndex()}>むりぽ</button>

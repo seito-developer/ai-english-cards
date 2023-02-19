@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react'
 // import cardStyles from '/'
-import styles from '@/components/Card/Card.module.scss'
+import styles from '@/components/Deck/Deck.module.scss'
+import Link from 'next/link'
 // import ICard from '@/components/Card/Card'
 
 export interface IDeck {
@@ -11,16 +12,14 @@ export interface IDeck {
 
 export default function Deck(params: IDeck) {
 
-  const [active, setActive] = useState<boolean>(false);
-
-  const handleClick = () => {
-    (active) ? setActive(false) : setActive(true)
-  }
-
   return (
-    <div className={`${styles.deck} + ${(active) ? styles.isReversed : ''}`} onClick={handleClick}>
-      <p>{ params.name }</p>
-      <p>Card numbers: { params.cards.length}</p>
+    <div className={styles.deck}>
+      <Link href={'/'}>
+        <div className={styles.deck__inner}>
+          <p className={styles.deck__heading}>{ params.name }</p>
+          <p className={styles.deck__num}>Card numbers: { params.cards.length}</p>
+        </div>
+      </Link> 
     </div>
   )
 }

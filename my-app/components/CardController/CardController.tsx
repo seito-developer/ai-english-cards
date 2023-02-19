@@ -5,18 +5,7 @@ import { cards } from '@/dummy-data/cards'
 import styles from '@/components/CardController/CardController.module.scss'
 import cx from "classnames";
 
-export interface ICardController {
-  id: number
-  wordEn: string
-  wordJa: string
-  exampleEn: string
-  exampleJa: string
-  voiceEn: any
-  voiceJa: any
-  imgUrl: string
-};
-
-export default function CardController(params: ICardController) {
+export default function CardController() {
   const [index, setIndex] = useState<number>(0)
 
   const itemLength = cards.length
@@ -29,7 +18,6 @@ export default function CardController(params: ICardController) {
     if(index === 0) return
     setIndex(index - 1)
   }
-  
 
   return (
     <div className={styles.cardController}>

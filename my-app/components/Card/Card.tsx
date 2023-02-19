@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react'
 // import cardStyles from '/'
-import styles from '@/components/Card.module.scss'
+import styles from '@/components/Card/Card.module.scss'
 
 export interface ICard {
   id: number

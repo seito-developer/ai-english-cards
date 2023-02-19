@@ -1,0 +1,39 @@
+@use "../../styles/mixin.scss";
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(#fff, .7);
+}
+.modal__box {
+    @include mixin.centerize();
+    width: 100%;
+    max-width: 640px;
+    height: 50vh;
+    background: rgb(245, 245, 174);
+}
+.modal__inner {
+    display: table-cell;
+    text-align: center;
+    width: 640px;
+    height: 404px;
+    vertical-align: middle;
+}
+.modal__heading {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+.modal__text {
+    margin-bottom: 30px;
+}
+.modal__link {
+    padding: 15px 30px;
+    text-align: center;
+    background-color: rgb(orange, .6);
+    font-weight: bold;
+    border-radius: 5px;
+}

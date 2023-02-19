@@ -4,14 +4,16 @@ import Card from '@/components/Card/Card'
 import { cards } from '@/dummy-data/cards'
 import styles from '@/components/CardController/CardController.module.scss'
 import cx from "classnames";
+import Modal from '../Modal/Modal';
 
 export default function CardController() {
   const [index, setIndex] = useState<number>(0)
 
   const itemLength = cards.length
+  const endNumber = itemLength - 1
 
   const increnmentIndex = () => {
-    if(index === (itemLength - 1)) return
+    if(index === (endNumber)) return
     setIndex(index + 1)
   }
   const decrementIndex = () => {
@@ -21,6 +23,10 @@ export default function CardController() {
 
   return (
     <div className={styles.cardController}>
+      {
+        (index === endNumber) ? <Modal /> : null
+      }
+
       <h1>{ (index + 1) + "/" + cards.length}</h1>
         <div className={styles.cardController__direction}>
             <button type='button' onClick={() => increnmentIndex()}>覚えた！</button>

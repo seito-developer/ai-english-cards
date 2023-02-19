@@ -10,7 +10,7 @@ export default function CardController() {
   const [index, setIndex] = useState<number>(0)
 
   const itemLength = cards.length
-  const endNumber = itemLength - 1
+  const endNumber = itemLength
 
   const increnmentIndex = () => {
     if(index === (endNumber)) return
@@ -21,13 +21,21 @@ export default function CardController() {
     setIndex(index - 1)
   }
 
+  const countCard = () => {
+    if(index === endNumber){
+      return index
+    } else {
+      return index + 1
+    }
+  }
+
   return (
     <div className={styles.cardController}>
       {
         (index === endNumber) ? <Modal /> : null
       }
 
-      <h1>{ (index + 1) + "/" + cards.length}</h1>
+      <h1>{ countCard() + "/" + cards.length}</h1>
         <div className={styles.cardController__direction}>
             <button type='button' onClick={() => increnmentIndex()}>覚えた！</button>
             <button type='button' onClick={() => increnmentIndex()}>むりぽ</button>

@@ -6,9 +6,10 @@ import { useForm, Resolver } from 'react-hook-form';
 import axios from 'axios';
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { API } from '@/config/const';
 
 const schema = z.object({
-  email: z.string().min(1, { message: '必須項目です' }).email('メールアドレスの形式で入力してください'),
+  username: z.string().min(1, { message: '必須項目です' }),
   password: z.string().min(1, { message: '必須項目です' }),
 });
 
@@ -24,8 +25,11 @@ export default function Home() {
 
   const onSubmit = async (data: Schema) => {
     try {
-      const response = await axios.post('/api/token/', data);
-      console.log(data)
+      
+      const response = await axios.post(API.AUTH_TOKEN, data);
+      console.log('API.AUTH_TOKEN:', API.AUTH_TOKEN)
+      console.log('response:', response)
+      console.log('data:', data)
       // localStorage.setItem('accessToken', response.data.access);
       // localStorage.setItem('refreshToken', response.data.refresh);
       // window.location.reload();
@@ -40,8 +44,8 @@ export default function Home() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1>ログイン</h1>
         <legend>
-          Email: <input {...register("email")} type="text" placeholder="example@gmail.com" />
-          {errors.email?.message && <p>{errors.email?.message}</p>}
+          User Name: <input {...register("username")} type="text" placeholder="username" />
+          {errors.username?.message && <p>{errors.username?.message}</p>}
         </legend>
 
         <legend>
